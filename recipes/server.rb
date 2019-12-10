@@ -1,10 +1,7 @@
 package 'httpd'
 
-file '/var/www/html/index.html' do
-	content "<h2> Hola Mundo Cruel ! jejejej </h2>
-	<h2> IPADDRESS: #{node['ipaddress']} </h2>
-	<h2> HOSTANAME: #{node['hostname']} </h2>
-"
+template  '/var/www/html/index.html' do
+	source 'index.html.erb'
 end
 
 service 'httpd' do
